@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Poppins&display=swap");
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: #3a3a3a;
+  box-sizing: border-box;
+}
+
+.sideNav {
+  position: fixed;
+  left: -100%;
+  top: 0;
+  width: 20%;
+  height: 100%;
+  z-index: 2;
+  background: rgb(233, 233, 233);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  &__btn_cancel {
+    width: 40px;
+    height: 40px;
+
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    cursor: pointer;
+    &:hover img {
+      transform: rotate(180deg);
+      transition: all 0.5s linear;
+    }
+    img {
+      width: 100%;
+      transition: all 0.5s linear;
+    }
+  }
+
+  &__container {
+    padding: 50px 20px;
+    &_list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        margin: 30px 0px;
+        border-bottom: 1px solid #2a2a2a;
+        text-align: left;
+        width: 200px;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: -10px;
+          z-index: -1;
+
+          width: 0%;
+          height: 100%;
+          background: rgb(189, 189, 189);
+
+          transform-origin: left;
+          transition: all 0.5s ease;
+          transform: skew(30deg);
+        }
+        &:hover::after {
+          left: -10px;
+          transition: all 0.5s ease;
+          transform-origin: right;
+          width: 150%;
+        }
+        &:hover a {
+          color: #fff;
+          transition: all 0.6s ease;
+        }
+        a {
+          font-size: 1.4rem;
+          font-weight: 400;
+          text-decoration: none;
+          color: #333;
+          display: block;
+          padding: 6px 0px 8px 15px;
+          font-family: "Montserrat", sans-serif;
+        }
+      }
+    }
+  }
+}
+.active {
+  left: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.sideNav__btn {
+  width: 50px;
+  height: 50px;
+
+  position: fixed;
+  left: 50px;
+  top: 50px;
+  cursor: pointer;
+  img {
+    width: 100%;
+  }
+}
+.main {
+  width: 1100px;
+  padding: 20px;
+  margin: 0px auto;
+
+  &__heading {
+    font-size: 2.5rem;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    margin-top: 50px;
+    text-align: center;
+  }
+  .para {
+    background: #fff;
+    padding: 50px 60px;
+    text-align: justify;
+    font-family: "Montserrat", sans-serif;
+    &:nth-child(odd) {
+      background: rgb(189, 189, 189);
+    }
+    &__btn {
+      text-decoration: none;
+      border: 1px solid #333;
+      padding: 10px 20px;
+      color: #333;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .sideNav {
+    width: 100%;
+  }
+  .main {
+    width: 380px;
+    &__heading {
+      margin-top: 80px;
+      font-size: 2rem;
+    }
+  }
+}
